@@ -216,7 +216,8 @@ public abstract class BarLineChartBaseManager<T extends BarLineChartBase, U exte
                 "moveViewToAnimated", MOVE_VIEW_TO_ANIMATED,
                 "fitScreen", FIT_SCREEN,
                 "centerViewTo", CENTER_VIEW_TO,
-                "centerViewToAnimated", CENTER_VIEW_TO_ANIMATED
+                "centerViewToAnimated", CENTER_VIEW_TO_ANIMATED,
+                "zoom", ZOOM
                 );
 
         if (commandsMap != null) {
@@ -246,6 +247,14 @@ public abstract class BarLineChartBaseManager<T extends BarLineChartBase, U exte
 
             case CENTER_VIEW_TO_ANIMATED:
                 root.centerViewToAnimated((float) args.getDouble(0), (float) args.getDouble(1), args.getString(2).equalsIgnoreCase("right") ? YAxis.AxisDependency.RIGHT : YAxis.AxisDependency.LEFT, args.getInt(3));
+                return;
+
+            case ZOOM:
+                float oldScaleX = root.getScaleX();
+                float oldScaleY = root.getScaleY();
+                float newScaleX = (float) args.getDouble(0);
+                float newScaleY = (float) args.getDouble(1);
+                root.zoom(newScaleX/oldScaleX, newScaleY/oldScaleY, (float) args.getDouble(2), (float) args.getDouble(3), args.getString(4).equalsIgnoreCase("right") ? YAxis.AxisDependency.RIGHT : YAxis.AxisDependency.LEFT);
                 return;
 
             case FIT_SCREEN:
