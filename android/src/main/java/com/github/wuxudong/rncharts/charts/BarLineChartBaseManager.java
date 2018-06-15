@@ -214,7 +214,10 @@ public abstract class BarLineChartBaseManager<T extends BarLineChartBase, U exte
                 "moveViewTo", MOVE_VIEW_TO,
                 "moveViewToX", MOVE_VIEW_TO_X,
                 "moveViewToAnimated", MOVE_VIEW_TO_ANIMATED,
-                "fitScreen", FIT_SCREEN);
+                "fitScreen", FIT_SCREEN,
+                "centerViewTo", CENTER_VIEW_TO,
+                "centerViewToAnimated", CENTER_VIEW_TO_ANIMATED
+                );
 
         if (commandsMap != null) {
             map.putAll(commandsMap);
