@@ -246,6 +246,9 @@ public abstract class ChartBaseManager<T extends Chart, U extends Entry> extends
         if (BridgeUtils.validate(propMap, ReadableType.String, "position")) {
             axis.setPosition(XAxisPosition.valueOf(propMap.getString("position")));
         }
+        if (BridgeUtils.validate(propMap, ReadableType.Boolean, "multiLineLabel")) {
+            axis.setMultiLineLabel(propMap.getBoolean("multiLineLabel"));
+        }
     }
 
     @ReactProp(name = "marker")
